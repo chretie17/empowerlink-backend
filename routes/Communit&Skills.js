@@ -28,4 +28,27 @@ router.get('/post-likes/user/:user_id', postLikesController.getUserLikes);
 router.post('/post-likes', postLikesController.addPostLike);
 router.delete('/post-likes', postLikesController.removePostLike);
 
+
+// Admin Skills Management Routes
+router.get('/admin/skills/categories', skillsController.adminGetSkillCategories);
+router.post('/admin/skills/categories', skillsController.createSkillCategory);
+router.put('/admin/skills/categories/:id', skillsController.updateSkillCategory);
+router.delete('/admin/skills/categories/:id', skillsController.deleteSkillCategory);
+
+router.get('/admin/skills', skillsController.adminGetSkills);
+router.post('/admin/skills', skillsController.createSkill);
+router.put('/admin/skills/:id', skillsController.updateSkill);
+router.delete('/admin/skills/:id', skillsController.deleteSkill);
+
+router.get('/admin/training', skillsController.adminGetTrainingResources);
+router.post('/admin/training', skillsController.createTrainingResource);
+router.put('/admin/training/:id', skillsController.updateTrainingResource);
+router.delete('/admin/training/:id', skillsController.deleteTrainingResource);
+
+// Employer Routes for Talent Searching
+router.get('/employer/users-by-skill', skillsController.getUsersBySkill);
+router.post('/employer/users-by-multiple-skills', skillsController.getUsersByMultipleSkills);
+router.get('/employer/user-profile/:user_id', skillsController.getUserProfile);
+router.get('/employer/users', skillsController.getAllUsersWithSkillStats);
+
 module.exports = router;
