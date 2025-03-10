@@ -5,6 +5,8 @@ const db = require('./config/db');
 const jobRoutes = require('./routes/jobRoutes');
 const userRoutes = require('./routes/userRoutes');
 const applicationRoutes = require('./routes/applications');
+const CommunitySkillsRoutes = require('./routes/Communit&Skills');
+const AdminPostRoutes = require('./routes/AdminPost'); 
 
 const app = express();
 app.use(cors());
@@ -14,7 +16,10 @@ app.use(bodyParser.json());
 app.use('/api/jobs', jobRoutes);
 app.use('/api/applications', applicationRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/', CommunitySkillsRoutes);
+app.use('/api/admin', AdminPostRoutes);
+
 
 // Start server with nodemon
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

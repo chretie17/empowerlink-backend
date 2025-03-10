@@ -45,18 +45,20 @@ exports.getForumTopic = (req, res) => {
     `;
     
     const postsQuery = `
-        SELECT 
-            fp.*,
-            u.name as user_name
-        FROM 
-            forum_posts fp
-        JOIN 
-            users u ON fp.user_id = u.id
-        WHERE 
-            fp.topic_id = ?
-        ORDER BY 
-            fp.created_at ASC
-    `;
+    SELECT 
+        fp.*,
+        u.name as user_name,
+        (SELECT COUNT(*) FROM post_likes pl WHERE pl.post_id = fp.id AND pl.like_type = 'like') as likes,
+        (SELECT COUNT(*) FROM post_likes pl WHERE pl.post_id = fp.id AND pl.like_type = 'dislike') as dislikes
+    FROM 
+        forum_posts fp
+    JOIN 
+        users u ON fp.user_id = u.id
+    WHERE 
+        fp.topic_id = ?
+    ORDER BY 
+        fp.created_at ASC
+`;
     
     db.query(topicQuery, [id], (err, topicResults) => {
         if (err) return res.status(500).json({ error: err.message });
