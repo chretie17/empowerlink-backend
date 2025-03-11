@@ -7,6 +7,7 @@ const userRoutes = require('./routes/userRoutes');
 const applicationRoutes = require('./routes/applications');
 const CommunitySkillsRoutes = require('./routes/Communit&Skills');
 const AdminPostRoutes = require('./routes/AdminPost'); 
+const ReportRoutes = require('./routes/Reports');
 
 const app = express();
 app.use(cors());
@@ -18,6 +19,7 @@ app.use('/api/applications', applicationRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/', CommunitySkillsRoutes);
 app.use('/api/admin', AdminPostRoutes);
+app.use('/api/reports', ReportRoutes)
 
 
 // Start server with nodemon
