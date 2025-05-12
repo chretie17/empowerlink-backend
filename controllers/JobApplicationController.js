@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 const sendEmailNotification = async (recipientEmail, subject, htmlContent) => {
     try {
         await transporter.sendMail({
-            from: `"JobMatch Platform" <${process.env.EMAIL_USER}>`,
+            from: `"EmpowerLink Platform" <${process.env.EMAIL_USER}>`,
             to: recipientEmail,
             subject: subject,
             html: htmlContent
@@ -81,7 +81,7 @@ exports.applyForJob = (req, res) => {
                                             <p><strong>Type:</strong> ${job.job_type}</p>
                                         </div>
                                         <p>If you have any questions, please don't hesitate to contact us.</p>
-                                        <p>Best regards,<br>The JobMatch Team</p>
+                                        <p>Best regards,<br>The EmpowerLink Team</p>
                                     </div>
                                     `
                                 );
@@ -102,7 +102,7 @@ exports.applyForJob = (req, res) => {
                                             <p><strong>Phone:</strong> ${user.phone || 'Not provided'}</p>
                                         </div>
                                         <p>Log in to your employer dashboard to review this application.</p>
-                                        <p>Best regards,<br>The JobMatch Team</p>
+                                        <p>Best regards,<br>The EmpowerLink Team</p>
                                     </div>
                                     `
                                 );
@@ -310,7 +310,7 @@ exports.updateApplicationStatus = (req, res) => {
                                         ${feedback ? `<p><strong>Additional Information:</strong> ${feedback}</p>` : ''}
                                     </div>
                                     <p>If you have any questions, please contact <a href="mailto:${application.employer_email}">${application.employer_name}</a>.</p>
-                                    <p>Best regards,<br>The JobMatch Team</p>
+                                    <p>Best regards,<br>The EmpowerLink Team</p>
                                 </div>
                                 `;
                                 break;
@@ -330,7 +330,7 @@ exports.updateApplicationStatus = (req, res) => {
                                     </div>
                                     ` : ''}
                                     <p>We appreciate your interest in our organization and encourage you to apply for future positions that match your skills and experience.</p>
-                                    <p>Best regards,<br>The JobMatch Team</p>
+                                    <p>Best regards,<br>The EmpowerLink Team</p>
                                 </div>
                                 `;
                                 break;
@@ -347,7 +347,7 @@ exports.updateApplicationStatus = (req, res) => {
                                         ${feedback ? `<p>${feedback}</p>` : '<p>The employer will contact you soon with specific interview details.</p>'}
                                     </div>
                                     <p>If you have any questions or need to reschedule, please contact <a href="mailto:${application.employer_email}">${application.employer_name}</a> directly.</p>
-                                    <p>Best regards,<br>The JobMatch Team</p>
+                                    <p>Best regards,<br>The EmpowerLink Team</p>
                                 </div>
                                 `;
                                 break;
@@ -365,7 +365,7 @@ exports.updateApplicationStatus = (req, res) => {
                                         ${feedback ? `<p><strong>Additional Information:</strong> ${feedback}</p>` : ''}
                                     </div>
                                     <p>If you have any questions, please contact <a href="mailto:${application.employer_email}">${application.employer_name}</a>.</p>
-                                    <p>Best regards,<br>The JobMatch Team</p>
+                                    <p>Best regards,<br>The EmpowerLink Team</p>
                                 </div>
                                 `;
                         }
