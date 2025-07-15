@@ -22,8 +22,8 @@ app.use('/api/', CommunitySkillsRoutes);
 app.use('/api/admin', AdminPostRoutes);
 app.use('/api/reports', ReportRoutes)
 app.use('/api/dashboard', dashboardRoutes); 
-
-
+app.use('/api/microfinance', require('./routes/microfinanceroutes'));
+app.use('/api/counselor', require('./routes/Counselor'));
 
 // Start server with nodemon
 const PORT = 5000;
